@@ -1,75 +1,50 @@
-# Smart Campus Navigation Mobile App
+# Welcome to your Expo app 👋
 
-## Overview
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-This mobile app is the Expo based application segment of the Smart Campus Navigation and Service Recommendation System developed for UESTC. It provides mobile access to the campus navigation platform through a React Native and WebView based interface.
+## Get started
 
-The app is intended to make the campus navigation system more accessible on smartphones for students and visitors.
+1. Install dependencies
 
-## Main Features
+   ```bash
+   npm install
+   ```
 
-1. Mobile access to the smart campus navigation system
-2. Integration of the web based navigation interface through React Native WebView
-3. Support for route generation and route preview
-4. Access to landmark browsing and recommended services
-5. Mobile friendly interface for on the move campus access
+2. Start the app
 
-## Technologies Used
+   ```bash
+   npx expo start
+   ```
 
-Expo  
-React Native  
-React Native WebView  
-TypeScript
+In the output, you'll find options to open the app in a
 
-## Project Structure
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-```text
-App/
-app/
-assets/
-components/
-constants/
-hooks/
-scripts/
-app.json
-package.json
-tsconfig.json
-README.md
-```
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## How to Run the App
+## Get a fresh project
 
-1. Open the app project folder
-2. Install dependencies
+When you're ready, run:
 
 ```bash
-npm install
+npm run reset-project
 ```
 
-3. Start the Expo development server
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-```bash
-npx expo start
-```
+## Learn more
 
-4. Open the app using Expo Go on your mobile device or run it through an emulator
+To learn more about developing your project with Expo, look at the following resources:
 
-## Current Status
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-The mobile app currently provides access to the web based smart campus navigation system through WebView. It supports mobile viewing of route generation, route preview, landmark access, and service recommendation.
+## Join the community
 
-## Limitation
+Join our community of developers creating universal apps.
 
-Reliable native GPS integration is not fully implemented yet in the current Expo mobile app version. The web based system is functional, while stronger native location handling is considered as a future development step for the mobile app.
-
-## Future Work
-
-1. Native GPS integration
-2. Improved mobile interaction
-3. Better performance optimization
-4. Offline support for mobile usage
-5. Stronger integration between mobile app and navigation logic
-
-## Academic Context
-
-This app segment is part of the Smart Campus Navigation and Service Recommendation System developed for the Mobile Computing course at UESTC.
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
