@@ -1,110 +1,144 @@
-# Smart Campus Navigation and Service Recommendation System Using Mobile Computing at UESTC
+# 🏫 Campus Navigation System 📍
 
-## Project Overview
+A web-based navigation tool for a university campus that uses **BFS (Breadth-First Search)**, **DFS (Depth-First Search)**, and **Dijkstra’s Algorithm** to compute paths between campus locations. The project features an interactive map (powered by **Leaflet.js**) and a data processing script (in **Python**) that converts GeoJSON data into a graph of nodes and edges.
 
-This project presents a smart campus navigation and service recommendation system designed for UESTC. It was developed as part of the Mobile Computing course to help students and visitors navigate the campus more easily through a mobile friendly platform.
+## Table of Contents
+- [Features](#-features)
+- [Project Structure](#project-structure)
+- [Technologies Used](#%EF%B8%8F-technologies-used)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
+  - [Live Demo](#live-demo)
+- [Future Enhancements](#future-enhancements)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-The system supports route generation between selected locations, landmark access, service recommendations, and distance calculation using multiple pathfinding algorithms. A web based version and an Expo based mobile app version are included in this project.
+---
 
-## Project Segments
+## ✨ Features
 
-### Website Segment
-The website segment provides the main smart campus navigation system. It supports route generation, route preview, landmark browsing, service recommendation, and distance calculation between selected campus locations.
+1. **Interactive Map Interface**  
+   - Users can view a campus map with clickable or selectable buildings and pathways.
 
-### App Segment
-The app segment provides a mobile app version developed using Expo and React Native WebView. It allows mobile access to the web based campus navigation system.
+2. **Multiple Pathfinding Algorithms**  
+   - **BFS:** Finds the path by exploring all nodes at each depth before moving deeper (shortest path in terms of number of edges on an unweighted graph).  
+   - **DFS:** Explores as far as possible along each branch (not guaranteed shortest route).  
+   - **Dijkstra’s Algorithm:** Computes the shortest path based on distances (weighted edges), suitable for real distances on campus.
 
-## Main Features
+3. **Data Processing with Python**  
+   - Converts campus GeoJSON data into a graph representation (`campus_nodes_edges.json`) including node coordinates, edges, and distances.
 
-1. Smart campus route generation  
-2. BFS, DFS, and Dijkstra algorithm support  
-3. Route preview with start and end point images  
-4. Landmark browsing and campus location access  
-5. Recommended services based on destination  
-6. Distance calculation between two selected locations  
-7. Mobile friendly user interface  
-8. Support for new and international students
+4. **Validation Checks**  
+   - Ensures users select valid start/end locations and an algorithm before computing routes.  
+   - Prevents identical start/end choices.
 
-## Technologies Used
+5. **Modular Codebase**  
+   - **`algorithms.js`** for pathfinding logic.
+   - **`graph.js`** for managing the graph data structure (nodes and adjacency lists).
+   - **`app.js`** for main application flow, map initialization, and UI event handling.  
+   - **`process_geojson.py`** for data processing.
 
-HTML  
-CSS  
-JavaScript  
-Leaflet  
-OpenStreetMap  
-Expo  
-React Native  
-React Native WebView
+---
 
-## Folder Structure
+## Project Structure
 
-```text
-SmartCampusNavigationSystem/
-README.md
-Website/
-App/
-Screenshots/
+```
+campus-navigation/
+├── index.html              # Main HTML file for the user interface
+├── css/
+│   └── styles.css          # Custom CSS for the UI
+├── js/
+│   ├── algorithms.js       # Contains BFS, DFS, and Dijkstra implementations
+│   ├── graph.js            # Graph class / data structure handling
+│   └── app.js              # Main application logic, map setup, event handlers
+├── data/
+│   └── data.geojson        # Original campus GeoJSON data
+├── campus_nodes_edges.json # Generated file with processed nodes and edges
+├── process_geojson.py      # Python script to convert data.geojson -> campus_nodes_edges.json
+└── README.md               # This README file
 ```
 
-### Website Folder
-The `Website` folder contains the web based campus navigation system files.
+---
 
-### App Folder
-The `App` folder contains the Expo based mobile app files.
+## 🛠️ Technologies Used
 
-### Screenshots Folder
-The `Screenshots` folder contains result images, interface screenshots, and route preview outputs.
+- **Front-End:**
+  - **HTML5**, **CSS3**, **JavaScript**
+  - **Leaflet.js** for map visualization
 
-## Algorithms Used
+- **Back-End / Data Processing:**
+  - **Python 3** with a custom script (`process_geojson.py`) for generating graph data from GeoJSON
 
-### BFS
-Breadth First Search is used to explore routes level by level in an unweighted graph.
+- **Algorithms:**
+  - **BFS** (Breadth-First Search)
+  - **DFS** (Depth-First Search)
+  - **Dijkstra’s Algorithm**
 
-### DFS
-Depth First Search is used to explore deeper paths before backtracking.
+---
 
-### Dijkstra
-Dijkstra algorithm is used to calculate the shortest path based on route distance.
+## Setup and Installation
 
-## Screenshots
+1. **Clone the Repository:**
 
-Add your result images inside the `Screenshots` folder.
+   ```bash
+   git clone https://github.com/YourUsername/campus-navigation.git
+   cd campus-navigation
+   ```
 
-Suggested screenshots:
-1. Home screen  
-2. Landmarks screen  
-3. Route preview  
-4. Recommended services  
-5. Distance calculation result  
-6. Algorithm comparison  
-7. Mobile app view
+2. **Serve the Application Locally:**  
+   - You can use a local server (e.g., Python’s built-in server) to serve `index.html`:
+     ```bash
+     python -m http.server 8000
+     ```
+   - Then open `http://localhost:8000/index.html` in your web browser.
 
-Example:
+---
 
-![Home Screen](Screenshots/home_screen.png)
-![Route Preview](Screenshots/route_preview.png)
-![Distance Result](Screenshots/distance_result.png)
+## Usage
 
-## Future Work
+1. **Select Start and End Locations:**
+   - Use the dropdown menus under **Start Location** and **End Location**.  
+   - Ensure these are different (the app will show an error if they’re the same).
 
-1. Native GPS integration for the mobile application  
-2. Offline campus navigation support  
-3. Real time location tracking  
-4. Improved service recommendation system  
-5. Full optimization of the mobile app version
+2. **Choose an Algorithm:**
+   - **BFS**: Explores nodes in layers; good for unweighted graphs but ignores real distances.  
+   - **DFS**: Explores a single path deeply; not guaranteed shortest.  
+   - **Dijkstra’s**: Considers distances and finds the true shortest path on weighted graphs.
 
-## Academic Context
+3. **Click **Find Route**:**
+   - The app calculates the route using your chosen algorithm.  
+   - A polyline is drawn on the map indicating the path.
 
-This project was developed for the Mobile Computing course at UESTC. It focuses on solving real campus navigation problems, especially for new and international students who may face difficulties in finding buildings, landmarks, dormitories, and service areas during their first days on campus.
+### Live Demo
+Here's a quick GIF demonstrating the main workflow:
 
-## Contribution
+![Campus Nav Demo](demo.gif)
+---
 
-This project applies mobile computing concepts to a practical university problem and aims to improve campus accessibility and convenience through a smart and user friendly system.
+## Future Enhancements
 
-## Author
+- **Display Path Statistics:**
+  - Show total distance traveled and estimated walking time on the UI.
+- **Accessibility Features:**
+  - Indicate wheelchair-accessible routes or building entrances.
+- **Real-Time Updates:**
+  - Handle temporary blockages or construction routes.
 
-Arafat Yeasin 
-Chaimae Lahlali
-UESTC  
-Mobile Computing Course Project
+---
 
+## License
+
+This project is licensed under the [MIT License](LICENSE.md) - see the `LICENSE.md` file for details.
+
+---
+
+## Acknowledgments
+
+- **Leaflet.js:** For the interactive map components.  
+- **OpenStreetMap & GeoJSON:** For geospatial data formats.  
+- **Instructors & Peers:** For guidance and feedback on BFS, DFS, and Dijkstra’s implementations.
+
+---
+
+**Thank you for checking out the Campus Navigation System!**  
+If you have any questions or suggestions, feel free to open an issue or submit a pull request on GitHub.
