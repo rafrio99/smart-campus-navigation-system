@@ -108,7 +108,11 @@ This project applies mobile computing concepts to a practical university problem
 
 ## Authors
 
-Arafat Yeasin  
-Chaimae Lahlali  
+***************************
+1. Arafat Yeasin  
+2. Chaimae Lahlali 
+3. Shiyam Md Sultan Mahmud
+4. El Bourari Radwa
+***************************
 UESTC  
 Mobile Computing Course Project
